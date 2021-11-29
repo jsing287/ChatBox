@@ -1,0 +1,22 @@
+{
+  "name": "chatbox",
+  "version": "1.0.0",
+  "description": "A Chatting system that can handle multiple rooms and multiple clients.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jsing287/ChatBox.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jsing287/ChatBox/issues"
+  },
+  "homepage": "https://github.com/jsing287/ChatBox#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
