@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
+    <script src="/socket.io/socket.io.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <h1>Chatting System</h1>
+    <h2>Welcome the ChatBox System</h2>
+    <div id="userName">
+        <label for="user">Please Enter Your Name</label>
+        <input type="text" id="user"></input>
+        <button type="submit" onclick="addUser()">Submit</button>
+     </div>
+
+     <div id="chat" style="display: flex; flex-direction: row; justify-content: space-evenly; visibility: hidden;" >
+        <div id="containUsers">
+            <div>Users:</div>
+                <div id="list">
+                    <ul id="userList">
+                        <li>a</li>
+                    </ul>
+                </div>
+        </div>
+
+        <div id="containRooms">
+            <label for="roomName">Add Room: </label>
+            <input type="text" id="roomName"></input>
+            <button type="submit" onclick="addChat()">Submit</button>
+            <div>Rooms  (Click on Room Name to Change Rooms): </div>
+                <div id="rlist">
+                    <ul id="rooms">
+                       
+                    </ul>
+                </div>
+
+        </div>
+
+    
+
+        <div id="messageInput">
+                 <label for="userMessage">Send Message</label>
+                 <input type="text" id="userMessage"></input>
+                 <button type="submit" onclick="transferMessage()">Submit</button>
+
+        </div>
+
+        <div id="messageContainer">
+            <div id="chatMessages"></div>
+        </div>
+
+        
+
+         
+
+     </div>
+
+
+
+ 
+  
+   
+    <script  src="handlers.js"></script>
+    
+</body>
+</html>
