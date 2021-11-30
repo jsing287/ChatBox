@@ -6,11 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
    
     <script src="/socket.io/socket.io.js"></script>
-    <title>Document</title>
+    <title>ChatBox</title>
 </head>
 <body>
     <h1>Chatting System</h1>
-    <h2>Welcome the ChatBox System</h2>
+    <h2>Welcome to the ChatBox System</h2>
     <div id="userName">
         <label for="user">Please Enter Your Name</label>
         <input type="text" id="user"></input>
@@ -19,19 +19,20 @@
 
      <div id="chat" style="display: flex; flex-direction: row; justify-content: space-evenly; visibility: hidden;" >
         <div id="containUsers">
-            <div>Users:</div>
+            <h3>Users:</h3>
                 <div id="list">
                     <ul id="userList">
-                        <li>a</li>
+                        
                     </ul>
                 </div>
         </div>
 
         <div id="containRooms">
+            <h3>Rooms: </h3>
             <label for="roomName">Add Room: </label>
             <input type="text" id="roomName"></input>
             <button type="submit" onclick="addChat()">Submit</button>
-            <div>Rooms  (Click on Room Name to Change Rooms): </div>
+            <div>(Click on Room Name to Change Rooms)</div>
                 <div id="rlist">
                     <ul id="rooms">
                        
@@ -43,13 +44,16 @@
     
 
         <div id="messageInput">
+            <h3>Text Box: </h3>
                  <label for="userMessage">Send Message</label>
                  <input type="text" id="userMessage"></input>
                  <button type="submit" onclick="transferMessage()">Submit</button>
 
         </div>
 
+        
         <div id="messageContainer">
+            <h3>Chat Box: </h3>
             <div id="chatMessages"></div>
         </div>
 
