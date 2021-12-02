@@ -1,7 +1,7 @@
 const express = require("express")
 const app = express();
 const port = 3000;
-const { Server } = require("socket.io"); //acquiring the  socket.io library to create and use socket connections.
+// const { Server } = require("socket.io"); //acquiring the  socket.io library to create and use socket connections.
 
 const commandInput = require("readline"); // allows reading from the terminal.
 
@@ -11,6 +11,8 @@ const corsOptions ={
    credentials:true,            //access-control-allow-credentials:true
    optionSuccessStatus:200,
 }
+
+
 
 app.use(cors(corsOptions))
 
@@ -28,7 +30,16 @@ let socketServer = app.listen(port, ()=>
 let chatUsers = {}; // a JSON to  hold  all current chat  users.
 let rooms = ["Community"]  // an array to hold all rooms that have been created within the chatroom
 
-const io = new Server(socketServer);  // creating an instance of a socket server.
+// const io = new Server(socketServer);  // creating an instance of a socket server.
+
+const io = require("socket.io")(socketServer, {
+    cors: {
+      origin: "*",
+      methods: ["GET", "POST"],
+      credentials: true
+
+    }
+  });
 
 // creating an instance of a command line interface.
 const serverLine  = commandInput.createInterface({input: process.stdin, output: process.stdout})
