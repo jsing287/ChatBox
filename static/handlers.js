@@ -1,10 +1,10 @@
 
-//const clientSocket = io.connect("http://localhost:3000"); // creating a socket connection on port 3000.
+const clientSocket = io.connect("http://localhost:3000"); // creating a socket connection on port 3000.
 
-const clientSocket = io("http://localhost:3000", {
-  withCredentials: true,
+// const clientSocket = io("http://localhost:3000", {
+//   withCredentials: true,
  
-});
+// });
 
 
 
