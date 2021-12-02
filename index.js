@@ -5,7 +5,7 @@ const { Server } = require("socket.io"); //acquiring the  socket.io library to c
 
 const commandInput = require("readline"); // allows reading from the terminal.
 
-// const cors=require("cors");
+const cors=require("cors");
 // const corsOptions ={
 //    origin:false, 
 //    credentials:true,            //access-control-allow-credentials:true
@@ -14,7 +14,7 @@ const commandInput = require("readline"); // allows reading from the terminal.
 // }
 
 
-
+app.use(cors())
 // app.use(cors(corsOptions))
 
 app.use(express.static("static")) //  telling express  to use the static folder index.html as default load.
