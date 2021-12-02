@@ -1,24 +1,29 @@
 const express = require("express")
 const app = express();
 const port = 3000;
-// const { Server } = require("socket.io"); //acquiring the  socket.io library to create and use socket connections.
+const { Server } = require("socket.io"); //acquiring the  socket.io library to create and use socket connections.
 
 const commandInput = require("readline"); // allows reading from the terminal.
 
-const cors=require("cors");
-const corsOptions ={
-   origin:false, 
-   credentials:true,            //access-control-allow-credentials:true
-   optionSuccessStatus:200,
-   allowHeaders: true
-}
+// const cors=require("cors");
+// const corsOptions ={
+//    origin:false, 
+//    credentials:true,            //access-control-allow-credentials:true
+//    optionSuccessStatus:200,
+//    allowHeaders: true
+// }
 
 
 
-app.use(cors(corsOptions))
+// app.use(cors(corsOptions))
 
 app.use(express.static("static")) //  telling express  to use the static folder index.html as default load.
 
+app.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+  });
 
 
 
