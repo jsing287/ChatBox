@@ -1,6 +1,6 @@
 const express = require("express")
 const app = express();
-const port = 3000;
+const port = 80;
 //const { Server } = require("socket.io"); //acquiring the  socket.io library to create and use socket connections.
 
 const commandInput = require("readline"); // allows reading from the terminal.
