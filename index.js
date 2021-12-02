@@ -7,7 +7,7 @@ const commandInput = require("readline"); // allows reading from the terminal.
 
 const cors=require("cors");
 const corsOptions ={
-   origin:'*', 
+   origin:false, 
    credentials:true,            //access-control-allow-credentials:true
    optionSuccessStatus:200,
    allowHeaders: true
