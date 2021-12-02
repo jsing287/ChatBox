@@ -13,7 +13,7 @@ app.use(express.static("static")) //  telling express  to use the static folder 
 
 
 // creating a server that listens on port 3000.
-let socketServer = app.listen(port, '0.0.0.0', ()=>
+let socketServer = app.listen(port, ()=>
 {
     console.log("Server Listening on  Port: " + port)
 })
