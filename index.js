@@ -5,35 +5,30 @@ const port = 3000;
 
 const commandInput = require("readline"); // allows reading from the terminal.
 
-// const cors=require("cors");
+
+  
 
 
 app.use(express.static("static")) //  telling express  to use the static folder index.html as default load.
 
 
 // creating a server that listens on port 3000.
-let socketServer = app.listen(port, ()=>
+let socketServer = app.listen(port, '0.0.0.0', ()=>
 {
     console.log("Server Listening on  Port: " + port)
 })
 
 
-// const io = new Server(socketServer);  // creating an instance of a socket server.
+ //const io = new Server(socketServer);  // creating an instance of a socket server.
 
-const io = require("socket.io")(socketServer, {
+ const io = require("socket.io")(socketServer, {
     cors: {
-      origin: "http://localhost:3000",
+      origin: "*",
       methods: ["GET", "POST"],
-
+      allowedHeaders: ["Access-Control-Allow-Origin"],
+      credentials: true
     }
   });
-
-
-
-
-
-
-
 
 // creating an instance of a command line interface.
 const serverLine  = commandInput.createInterface({input: process.stdin, output: process.stdout})
