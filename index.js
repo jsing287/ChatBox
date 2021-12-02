@@ -1,30 +1,14 @@
 const express = require("express")
 const app = express();
 const port = 3000;
-const { Server } = require("socket.io"); //acquiring the  socket.io library to create and use socket connections.
+//const { Server } = require("socket.io"); //acquiring the  socket.io library to create and use socket connections.
 
 const commandInput = require("readline"); // allows reading from the terminal.
 
-const cors=require("cors");
-// const corsOptions ={
-//    origin:false, 
-//    credentials:true,            //access-control-allow-credentials:true
-//    optionSuccessStatus:200,
-//    allowHeaders: true
-// }
+// const cors=require("cors");
 
-
-app.use(cors())
-// app.use(cors(corsOptions))
 
 app.use(express.static("static")) //  telling express  to use the static folder index.html as default load.
-
-app.use(function(req, res, next) {
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    next();
-  });
-
 
 
 // creating a server that listens on port 3000.
@@ -33,22 +17,31 @@ let socketServer = app.listen(port, ()=>
     console.log("Server Listening on  Port: " + port)
 })
 
-let chatUsers = {}; // a JSON to  hold  all current chat  users.
-let rooms = ["Community"]  // an array to hold all rooms that have been created within the chatroom
 
 // const io = new Server(socketServer);  // creating an instance of a socket server.
 
 const io = require("socket.io")(socketServer, {
     cors: {
-      origin: "*",
+      origin: "http://localhost:3000",
       methods: ["GET", "POST"],
-      credentials: true
 
     }
   });
 
+
+
+
+
+
+
+
 // creating an instance of a command line interface.
 const serverLine  = commandInput.createInterface({input: process.stdin, output: process.stdout})
+
+
+
+let chatUsers = {}; // a JSON to  hold  all current chat  users.
+let rooms = ["Community"]  // an array to hold all rooms that have been created within the chatroom
 
 
 // the initial .on connect method starts when the socket  connection has been successfully made.
